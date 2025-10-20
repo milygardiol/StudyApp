@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StudyApp — Pomodoro • To‑Do • Hydration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div>
+                <h1>StudyApp</h1>
+                <p>Focus with Pomodoro • Track tasks • Stay hydrated</p>
+            </div>
+            <div>
+                <p style="color:var(--muted)">Local • No account • Works offline</p>
+            </div>
+        </header>
+
+        <section class="card pomodoro">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>Pomodoro Timer</strong><div style="color:var(--muted);font-size:13px">Work / Short / Long cycles</div>
+                </div>
+                <div class="settings">
+                    <label>Auto-switch<input id="autoSwitch" type="checkbox" checked style="margin-left:6px"></label>
+                    <label>Volume
+                        <input id="sfx" type="range" min="0" max="1" step="0.05" value="0.6" style="width:110px;margin-left:8px">
+                    </label>
+                </div>
+            </div>
+
+            <div class="timer">
+                <div class="clock">
+                    <div class="time" id="pomTime">25:00</div>
+                    <div class="mode" id="pomMode">Work</div>
+                </div>
+
+                <div style="flex:1;display:flex;flex-direction:column;gap:12px">
+                    <div>
+                        <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+                            <button id="startPause" class="primary">Start</button>
+                            <button id="skip">Skip</button>
+                            <button id="reset">Reset</button>
+                        </div>
+                        <progress id="pomProgress" value="0" max="100"></progress>
+                    </div>
+
+                    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                        <label>Work <input id="workMin" type="number" min="1" value="25" style="width:70px"></label>
+                        <label>Short <input id="shortMin" type="number" min="1" value="5" style="width:70px"></label>
+                        <label>Long <input id="longMin" type="number" min="1" value="15" style="width:70px"></label>
+                        <label style="font-size:13px;color:var(--muted)">Cycle count: <span id="cycleCount">0</span></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="stack">
+            <div class="card">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <strong>To‑Do</strong><div style="color:var(--muted);font-size:13px">Quick tasks for this session</div>
+                    </div>
+                    <button id="clearDone" class="small">Clear Done</button>
+                </div>
+
+                <div style="margin-top:12px" class="todo-input">
+                    <input id="todoInput" placeholder="Add new task..." style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff">
+                    <button id="addTodo" class="primary small">Add</button>
+                </div>
+
+                <div class="todo-list" id="todoList" aria-live="polite"></div>
+            </div>
+
+            <div class="card water">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div>
+                        <strong>Hydration Reminder</strong><div style="color:var(--muted);font-size:13px">Gentle reminders to drink water</div>
+                    </div>
+                    <div style="font-size:13px;color:var(--muted)"><span id="waterNext">—</span></div>
+                </div>
+
+                <div style="display:flex;gap:8px;align-items:center;margin-top:6px">
+                    <label>Interval (min)
+                        <input id="waterMin" type="number" min="5" value="45" style="width:75px;margin-left:8px">
+                    </label>
+                    <button id="startWater" class="primary small">Start</button>
+                    <button id="stopWater" class="small">Stop</button>
+                    <button id="drank" class="small">I drank</button>
+                </div>
+
+                <div style="margin-top:10px">
+                    <div class="bar"><div class="progress" id="waterBar"></div></div>
+                    <div style="display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-top:6px">
+                        <div id="waterElapsed">0m</div>
+                        <div id="waterRemaining">—</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:10px;color:var(--muted);font-size:13px">
+                    Tip: Allow notifications for silent reminders.
+                </div>
+            </div>
+        </aside>
+
+        <footer>
+            Built for focused study • Data saved locally in your browser • Aiz
+        </footer>
+    </div>
+
+    <audio id="tickSfx" src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="></audio>
+
+    <script src="functions.js"></script>
+</body>
+</html></div>
