@@ -20,5 +20,5 @@ StudyApp helps you manage study sessions, pomodoro and to‑do items in a simple
 - Name: Milagros Gardiol
 - Role: Student
 - Email: [milygardiol07@gmail.com]
-- GitHub: https://github.com/[milygardiol]
+- GitHub: https://github.com/milygardiol
 
