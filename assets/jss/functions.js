@@ -1,4 +1,4 @@
-// Simple helper
+
 const $ = id => document.getElementById(id);
 
 // ---------- POMODORO ----------
@@ -7,7 +7,7 @@ let timers = { work: 25 * 60, short: 5 * 60, long: 15 * 60 };
 let remaining = timers.work;
 let running = false;
 let pomInterval = null;
-let cycles = 0; // completed work sessions
+let cycles = 0; 
 const pomTime = $('pomTime'), pomMode = $('pomMode'), pomProgress = $('pomProgress'), cycleCount = $('cycleCount');
 
 function formatTime(s) {
@@ -48,7 +48,6 @@ function notify(title, body) {
     if (Notification && Notification.permission === 'granted') {
         try { new Notification(title, { body, silent: false }); } catch (e) { }
     } else {
-        // fallback subtle visual
         alert(title + (body ? '\n\n' + body : ''));
     }
 }
